@@ -8,58 +8,62 @@ class Background extends GetView<OnboardingControllerImpl> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<OnboardingControllerImpl>(
-      builder: (conttroller) {
-        return Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [AppColors.purple, AppColors.white],
+    return GetBuilder<OnboardingControllerImpl>(builder: (controller) {
+      return Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [AppColors.purple, AppColors.white],
+          ),
+        ),
+        child: Stack(
+          children: [
+            AnimatedPositioned(
+              left: controller.circle1Left,
+              top: controller.circle1Top,
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeInOut,
+              child: Container(
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.white.withOpacity(0.3),
+                ),
+              ),
             ),
-          ),
-          child: Stack(
-            children: [
-              Positioned(
-                left: 25,
-                top: 50,
-                child: Container(
-                  width: 50,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColors.white.withOpacity(0.3),
-                  ),
+            AnimatedPositioned(
+              right: controller.circle2Right,
+              bottom: controller.circle2Bottom,
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeInOut,
+              child: Container(
+                width: 90,
+                height: 400,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.white.withOpacity(0.3),
                 ),
               ),
-              Positioned(
-                right: 10,
-                bottom: 100,
-                child: Container(
-                  width: 90,
-                  height: 400,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColors.white.withOpacity(0.3),
-                  ),
+            ),
+            AnimatedPositioned(
+              left: controller.circle3Left,
+              top: controller.circle3Top,
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeInOut,
+              child: Container(
+                width: 90,
+                height: 90,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.white.withOpacity(0.3),
                 ),
               ),
-              Positioned(
-                left: 100,
-                top: 200,
-                child: Container(
-                  width: 90,
-                  height: 90,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColors.white.withOpacity(0.3),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        );
-      }
-    );
+            ),
+          ],
+        ),
+      );
+    });
   }
 }
