@@ -51,7 +51,7 @@ class CustomNextButton extends GetView<OnboardingControllerImpl> {
       child: Container(
         width: 50,
         height: 50,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: AppColors.purple,
           shape: BoxShape.circle,
         ),

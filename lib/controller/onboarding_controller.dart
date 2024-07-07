@@ -11,7 +11,7 @@ class OnboardingControllerImpl extends OnboardingController {
   late PageController pageController;
   int currentIndex = 0;
 
-  // Variables for circle positions
+
   double circle1Left = 25;
   double circle1Top = 50;
   double circle2Right = 10;
@@ -45,7 +45,7 @@ class OnboardingControllerImpl extends OnboardingController {
     update();
   }
 
-  // Method to update circle positions
+
   void updateCirclePositions() {
     circle1Left = (circle1Left + 30) % Get.width;
     circle1Top = (circle1Top + 50) % Get.height;
@@ -53,6 +53,6 @@ class OnboardingControllerImpl extends OnboardingController {
     circle2Bottom = (circle2Bottom + 60) % Get.height;
     circle3Left = (circle3Left + 50) % Get.width;
     circle3Top = (circle3Top + 70) % Get.height;
-    update(); // Notify listeners to update the UI
+    update(); 
   }
 }
